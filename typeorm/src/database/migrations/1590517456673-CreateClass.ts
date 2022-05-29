@@ -11,6 +11,7 @@ export default class CreateClass1590517456673 implements MigrationInterface {
             type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',
@@ -21,12 +22,12 @@ export default class CreateClass1590517456673 implements MigrationInterface {
             type: 'integer',
           },
           {
-            name: 'created_At',
+            name: 'createdAt',
             type: 'timestamp',
             default: 'now()',
           },
           {
-            name: 'updated_At',
+            name: 'updatedAt',
             type: 'timestamp',
             default: 'now()',
           },
