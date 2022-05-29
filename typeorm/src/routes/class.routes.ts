@@ -16,3 +16,11 @@ classRouter.post('/', async (request: Request, response: Response) => {
     console.log('error message', error.message);
   }
 });
+
+classRouter.get('/', async (_request: Request, response: Response) => {
+  const classRepository = getRepository(Class);
+
+  const classes = await classRepository.find();
+
+  return response.json(classes);
+});
