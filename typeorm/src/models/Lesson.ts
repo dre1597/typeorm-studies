@@ -6,16 +6,13 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('class')
-export class Class {
+@Entity('lesson')
+export class Lesson {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 100, unique: true })
-  name: string;
-
   @Column()
-  duration: number;
+  description: string;
 
   @CreateDateColumn()
   createdAt: Date;
