@@ -29,6 +29,7 @@ export class Lesson {
 
   @ManyToOne(() => Classroom, classroom => classroom.lessons, {
     eager: true,
+    cascade: true,
   })
   classroom: Classroom;
 }
