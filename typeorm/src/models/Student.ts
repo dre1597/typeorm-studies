@@ -28,5 +28,5 @@ export class Student {
 
   @ManyToMany(() => Classroom)
   @JoinTable()
-  classrooms: Classroom;
+  classrooms: Classroom[];
 }
