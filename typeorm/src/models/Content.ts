@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Lesson } from './Lesson';
 
 @Entity('content')
 export class Content {
@@ -22,4 +25,8 @@ export class Content {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToOne(() => Lesson, lesson => lesson.content)
+  @JoinColumn()
+  lesson: Lesson;
 }
