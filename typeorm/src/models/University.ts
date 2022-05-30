@@ -1,7 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { ChildEntity, Column } from 'typeorm';
 import { Institution } from './Institution';
 
-@Entity('university')
+@ChildEntity()
 export class University extends Institution {
   @Column()
   graduations: string;
