@@ -27,6 +27,8 @@ export class Lesson {
   @OneToOne(() => Content, content => content.lesson)
   content: Content;
 
-  @ManyToOne(() => Classroom, classroom => classroom.lessons)
+  @ManyToOne(() => Classroom, classroom => classroom.lessons, {
+    eager: true,
+  })
   classroom: Classroom;
 }
