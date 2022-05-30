@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Classroom } from './Classroom';
 
 @Entity('student')
 export class Student {
@@ -22,4 +25,8 @@ export class Student {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @ManyToMany(() => Classroom)
+  @JoinTable()
+  classrooms: Classroom;
 }
