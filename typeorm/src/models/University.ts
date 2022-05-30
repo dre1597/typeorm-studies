@@ -1,8 +1,17 @@
-import { ChildEntity, Column } from 'typeorm';
-import { Institution } from './Institution';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Identifier } from './Identifier';
 
-@ChildEntity()
-export class University extends Institution {
+@Entity('university')
+export class University {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
   @Column()
   graduations: string;
 
@@ -11,4 +20,13 @@ export class University extends Institution {
 
   @Column()
   masters: string;
+
+  @Column(() => Identifier)
+  identification: Identifier;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

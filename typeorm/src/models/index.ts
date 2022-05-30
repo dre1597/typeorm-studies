@@ -4,3 +4,4 @@ export * from './Lesson';
 export * from './Student';
 export * from './University';
 export * from './College';
+export * from './Identifier';
