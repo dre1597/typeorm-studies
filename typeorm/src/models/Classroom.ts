@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Lesson } from './Lesson';
 
 @Entity('classroom')
 export class Classroom {
@@ -22,4 +24,7 @@ export class Classroom {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Lesson, lesson => lesson.classroom)
+  lessons: Lesson[];
 }
