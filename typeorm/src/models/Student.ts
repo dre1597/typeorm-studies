@@ -17,8 +17,11 @@ export class Student {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   key: number;
+
+  @Column({ unique: true })
+  email: string;
 
   @CreateDateColumn()
   createdAt: Date;
