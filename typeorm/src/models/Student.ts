@@ -15,6 +15,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { MyCrypto } from '../helpers/crypto';
 import { Classroom } from './Classroom';
 
 @Entity('student')
@@ -22,7 +23,11 @@ export class Student {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    transformer: MyCrypto,
+  })
   @MaxLength(50)
   @MinLength(3)
   name: string;
@@ -30,7 +35,7 @@ export class Student {
   @Column({ unique: true })
   @IsNumber()
   @Max(9999)
-  @Min(1000)
+  @Min(1)
   key: number;
 
   @Column({ unique: true })
